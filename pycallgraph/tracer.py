@@ -372,4 +372,5 @@ def simple_memoize(callable_object):
 
     return wrapper
 
+
 inspect.getmodule = simple_memoize(inspect.getmodule)

@@ -33,7 +33,7 @@ class PyCallGraph(object):
     def __enter__(self):
         self.start()
 
-    def __exit__(self, type, value, traceback):
+    def __exit__(self, type, value, traceback):  # noqa: A002
         self.done()
 
     def get_tracer_class(self):

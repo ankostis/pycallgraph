@@ -116,7 +116,7 @@ class Output(object):
         self.processor.config.log_debug(text)
 
     @classmethod
-    def add_output_file(cls, subparser, defaults, help):
+    def add_output_file(cls, subparser, defaults, help):  # noqa: A002
         subparser.add_argument(
             '-o', '--output-file', type=str, default=defaults.output_file,
             help=help,
