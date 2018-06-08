@@ -17,6 +17,7 @@ matrix:
   allow_failures:
     - python:
        - "pypy"
+       - '3.7-dev'  # Due to PyYAML (from `coveralls`)
     - python:
        - "nigthly"
 
