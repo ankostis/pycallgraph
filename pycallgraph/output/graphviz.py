@@ -1,7 +1,9 @@
 from __future__ import division
 
 import tempfile
+import operator
 import os
+import sys
 import textwrap
 import subprocess as sub
 
@@ -9,6 +11,11 @@ from ..metadata import __version__
 from ..exceptions import PyCallGraphException
 from ..color import Color
 from .output import Output
+
+
+iteritems = operator.methodcaller('iteritems'
+                                  if sys.version_info < (3, ) else
+                                  'items')
 
 
 class GraphvizOutput(Output):
@@ -151,7 +158,7 @@ class GraphvizOutput(Output):
 
     def attrs_from_dict(self, d):
         output = []
-        for attr, val in d.iteritems():
+        for attr, val in iteritems(d):
             output.append('%s = "%s"' % (attr, val))
         return ', '.join(output)
 
@@ -167,7 +174,7 @@ class GraphvizOutput(Output):
 
     def generate_attributes(self):
         output = []
-        for section, attrs in self.graph_attributes.iteritems():
+        for section, attrs in iteritems(self.graph_attributes):
             output.append('{0} [ {1} ];'.format(
                 section, self.attrs_from_dict(attrs),
             ))

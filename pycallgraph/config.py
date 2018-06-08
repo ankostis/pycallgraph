@@ -1,9 +1,15 @@
 import argparse
+import operator
 import sys
 
 from .output import outputters
 from .globbing_filter import GlobbingFilter
 from .grouper import Grouper
+
+
+iteritems = operator.methodcaller('iteritems'
+                                  if sys.version_info < (3, ) else
+                                  'items')
 
 
 class Config(object):
@@ -38,7 +44,7 @@ class Config(object):
         self.did_init = True
 
         # Update the defaults with anything from kwargs
-        [setattr(self, k, v) for k, v in kwargs.iteritems()]
+        [setattr(self, k, v) for k, v in iteritems(kwargs)]
 
         self.create_parser()
 

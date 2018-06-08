@@ -1,9 +1,15 @@
-import re
+import operator
 import os
+import re
+import sys
 from distutils.spawn import find_executable
 
 from ..exceptions import PyCallGraphException
 from ..color import Color
+
+iteritems = operator.methodcaller('iteritems'
+                                  if sys.version_info < (3, ) else
+                                  'items')
 
 
 class Output(object):
@@ -16,14 +22,14 @@ class Output(object):
         self.edge_label_func = self.edge_label
 
         # Update the defaults with anything from kwargs
-        [setattr(self, k, v) for k, v in kwargs.iteritems()]
+        [setattr(self, k, v) for k, v in iteritems(kwargs)]
 
     def set_config(self, config):
         '''
         This is a quick hack to move the config variables set in Config into
         the output module config variables.
         '''
-        for k, v in config.__dict__.iteritems():
+        for k, v in iteritems(config.__dict__):
             if hasattr(self, k) and \
                     callable(getattr(self, k)):
                 continue
