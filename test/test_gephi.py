@@ -1,5 +1,10 @@
-from helpers import *
-from calls import *
+from pycallgraph import PyCallGraph
+from pycallgraph.output.gephi import GephiOutput
+import os
+
+import pytest
+
+from calls import one_nop
 
 
 @pytest.fixture

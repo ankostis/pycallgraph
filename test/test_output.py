@@ -1,4 +1,5 @@
-from helpers import *
+from pycallgraph import Config
+from pycallgraph.output import Output
 
 
 def test_set_config():

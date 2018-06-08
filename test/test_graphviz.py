@@ -1,5 +1,10 @@
-from helpers import *
-from calls import *
+from pycallgraph.output.graphviz import GraphvizOutput
+from pycallgraph.pycallgraph import PyCallGraph
+import os
+
+import pytest
+
+from calls import one_nop
 
 
 @pytest.fixture
