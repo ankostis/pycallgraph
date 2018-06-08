@@ -28,7 +28,7 @@ tests:
 
 	flake8 --exclude=__init__.py,memory_profiler.py pycallgraph
 	flake8 --ignore=F403 test
-	flake8 examples
+	flake8 examples --exclude=all.py
 
 doc:
 	cd docs/examples && ./generate.py

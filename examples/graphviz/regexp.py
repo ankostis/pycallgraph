@@ -15,11 +15,11 @@ def main():
     config = Config(include_stdlib=True)
 
     with PyCallGraph(output=graphviz, config=config):
-        reo = compile()
+        reo = compile_regex()
         match(reo)
 
 
-def compile():
+def compile_regex():
     return re.compile('^[abetors]*$')
 
 
@@ -40,6 +40,7 @@ def words():
         'abrasive',
         'abrasives',
     ]
+
 
 if __name__ == '__main__':
     main()
