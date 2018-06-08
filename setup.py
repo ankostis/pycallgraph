@@ -5,6 +5,8 @@ import sys
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
+## FIXME: importing my-package may fail if dependent projects
+#  from :mod:`./pycallgraph/__init__.py` are not installed yet at this stage!
 import pycallgraph
 
 
@@ -41,7 +43,8 @@ setup(
     license=open('LICENSE').read(),
     url=pycallgraph.__url__,
     packages=['pycallgraph', 'pycallgraph.output'],
-    scripts=['scripts/pycallgraph'],
+    entry_points={
+        'console_scripts': ['pycallgraph = pycallgraph.__main__:main']},
     data_files=data_files,
     use_2to3=True,
 

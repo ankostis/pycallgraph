@@ -4,6 +4,14 @@ pycallgraph
 This script is the command line interface to the pycallgraph Python library.
 
 See http://pycallgraph.slowchop.com/ for more information.
+
+.. deprecated:: > 1.0.1
+    Code here moved to :func:`pycallgraph.__main__.main()`
+    and now using setuptools console-script entry-points,
+    to properly install on Windows.
+    
+    - See https://github.com/gak/pycallgraph/issues/119
+    - See https://github.com/gak/pycallgraph/issues/155
 """
 import sys
 import os
