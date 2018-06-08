@@ -5,6 +5,9 @@ python:
   - "2.7"
   - "3.3"
   - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7-dev"
   - "pypy"
 # pytest does not support python 3.5
 # https://bitbucket.org/pytest-dev/pytest/pull-request/296/astcall-signature-changed-on-35
